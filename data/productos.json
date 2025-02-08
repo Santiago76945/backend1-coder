@@ -1,0 +1,132 @@
+[
+    {
+        "id": 1,
+        "title": "Manzanas",
+        "description": "Manzanas rojas frescas y jugosas",
+        "code": "COM001",
+        "price": 1.50,
+        "status": true,
+        "stock": 100,
+        "category": "Frutas",
+        "thumbnails": [
+            "images/manzanas.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Bananas",
+        "description": "Bananas maduras ideales para un snack saludable",
+        "code": "COM002",
+        "price": 0.80,
+        "status": true,
+        "stock": 150,
+        "category": "Frutas",
+        "thumbnails": [
+            "images/bananas.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Leche Entera",
+        "description": "Leche fresca de alta calidad, ideal para el desayuno",
+        "code": "COM003",
+        "price": 0.90,
+        "status": true,
+        "stock": 200,
+        "category": "Lácteos",
+        "thumbnails": [
+            "images/leche.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Pan Integral",
+        "description": "Pan integral recién horneado, perfecto para tus comidas",
+        "code": "COM004",
+        "price": 2.00,
+        "status": true,
+        "stock": 80,
+        "category": "Panadería",
+        "thumbnails": [
+            "images/pan_integral.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Huevos Orgánicos",
+        "description": "Huevos de gallinas criadas en libertad, frescos y nutritivos",
+        "code": "COM005",
+        "price": 3.50,
+        "status": true,
+        "stock": 60,
+        "category": "Huevos",
+        "thumbnails": [
+            "images/huevos.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Arroz Integral",
+        "description": "Arroz integral de grano largo, ideal para una dieta saludable",
+        "code": "COM006",
+        "price": 1.20,
+        "status": true,
+        "stock": 120,
+        "category": "Cereales",
+        "thumbnails": [
+            "images/arroz_integral.jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Pechuga de Pollo",
+        "description": "Pechuga de pollo fresca, sin piel y alta en proteínas",
+        "code": "COM007",
+        "price": 4.00,
+        "status": true,
+        "stock": 70,
+        "category": "Carnes",
+        "thumbnails": [
+            "images/pechuga_pollo.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Tomates",
+        "description": "Tomates maduros, perfectos para ensaladas y salsas",
+        "code": "COM008",
+        "price": 1.00,
+        "status": true,
+        "stock": 90,
+        "category": "Verduras",
+        "thumbnails": [
+            "images/tomates.jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Aceite de Oliva",
+        "description": "Aceite de oliva extra virgen, ideal para aderezar tus platos",
+        "code": "COM009",
+        "price": 6.00,
+        "status": true,
+        "stock": 50,
+        "category": "Aceites",
+        "thumbnails": [
+            "images/aceite_oliva.jpg"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Yogur Natural",
+        "description": "Yogur natural sin azúcar, perfecto para desayunos y meriendas",
+        "code": "COM010",
+        "price": 2.50,
+        "status": true,
+        "stock": 110,
+        "category": "Lácteos",
+        "thumbnails": [
+            "images/yogur_natural.jpg"
+        ]
+    }
+]
