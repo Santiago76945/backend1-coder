@@ -1,9 +1,10 @@
-// routes/carts.router.js
+// src/routes/carts.router.js
+
 const express = require('express');
 const fs = require('fs').promises;
 const router = express.Router();
 
-const CARTS_FILE = './data/carrito.json';
+const CARTS_FILE = '../data/carrito.json';
 
 // Función para leer los carritos desde el archivo
 async function readCartsFile() {
@@ -15,9 +16,11 @@ async function readCartsFile() {
     }
 }
 
-// Función para escribir los carritos en el archivo
+// Función para escribir los carritos en el archivo y registrar el cambio en el log
 async function writeCartsFile(carts) {
     await fs.writeFile(CARTS_FILE, JSON.stringify(carts, null, 2));
+    const logEntry = `${new Date().toISOString()} - Carritos actualizados: ${JSON.stringify(carts)}\n`;
+    await fs.appendFile('../data/carrito_history.log', logEntry);
 }
 
 /**
@@ -94,3 +97,4 @@ router.post('/:cid/product/:pid', async (req, res) => {
 });
 
 module.exports = router;
+

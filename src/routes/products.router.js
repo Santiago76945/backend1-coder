@@ -1,9 +1,10 @@
-// routes/products.router.js
+// src/routes/products.router.js
+
 const express = require('express');
 const fs = require('fs').promises;
 const router = express.Router();
 
-const PRODUCTS_FILE = './data/productos.json';
+const PRODUCTS_FILE = '../data/productos.json';
 
 // Función para leer los productos desde el archivo
 async function readProductsFile() {
@@ -15,9 +16,11 @@ async function readProductsFile() {
     }
 }
 
-// Función para escribir los productos en el archivo
+// Función para escribir los productos en el archivo y registrar el cambio en el log
 async function writeProductsFile(products) {
     await fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 2));
+    const logEntry = `${new Date().toISOString()} - Productos actualizados: ${JSON.stringify(products)}\n`;
+    await fs.appendFile('../data/productos_history.log', logEntry);
 }
 
 /**
@@ -89,6 +92,13 @@ router.post('/', async (req, res) => {
 
         products.push(newProduct);
         await writeProductsFile(products);
+
+        // Emite el evento de actualización de productos a través de sockets
+        const io = req.app.get('io');
+        if (io) {
+            io.emit('updateProducts', products);
+        }
+
         res.status(201).json(newProduct);
     } catch (error) {
         res.status(500).json({ error: 'Error al agregar producto' });
@@ -115,6 +125,13 @@ router.put('/:pid', async (req, res) => {
         const updatedProduct = { ...products[index], ...updatedFields };
         products[index] = updatedProduct;
         await writeProductsFile(products);
+
+        // Emitir actualización (si se desea que la modificación se refleje en tiempo real)
+        const io = req.app.get('io');
+        if (io) {
+            io.emit('updateProducts', products);
+        }
+
         res.json(updatedProduct);
     } catch (error) {
         res.status(500).json({ error: 'Error al actualizar producto' });
@@ -135,6 +152,13 @@ router.delete('/:pid', async (req, res) => {
         }
         const deletedProduct = products.splice(index, 1)[0];
         await writeProductsFile(products);
+
+        // Emitir actualización para reflejar la eliminación en tiempo real
+        const io = req.app.get('io');
+        if (io) {
+            io.emit('updateProducts', products);
+        }
+
         res.json({ message: 'Producto eliminado', product: deletedProduct });
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar producto' });
