@@ -1,21 +1,22 @@
+{{!-- src/views/home.handlebars --}}
+
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Home - Lista de Productos</title>
-</head>
-
-<body>
+  </head>
+  <body>
     <h1>Lista de Productos</h1>
     <ul>
-        {{#each products}}
-        <li>
-            <strong>{{this.title}}</strong> - {{this.description}} - ${{this.price}}
-        </li>
-        {{/each}}
+      {{#each products}}
+      <li>
+        <a href="/products/{{this._id}}">
+          <strong>{{this.title}}</strong> - {{this.description}} - ${{this.price}}
+        </a>
+      </li>
+      {{/each}}
     </ul>
     <a href="/realtimeproducts">Ver productos en tiempo real</a>
-</body>
-
+  </body>
 </html>
